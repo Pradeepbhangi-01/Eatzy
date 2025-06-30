@@ -1,0 +1,23 @@
+1. React Element
+- It is an object When we renders it to dom it will become HTML Element
+
+React.createElemt => React Element -> JS Object ==> HTMLElement(render)
+
+JSX=> (transpiled before it reaches the JS) => By Parcel --> By Babel
+
+
+JSX=> (Babel) => React.createElement
+
+2. In React for giving attributes we need to use camel case naming
+
+EP3
+3. React Component --> It is Javascript function which return the JSX, Name of the Component should be JSX
+
+4. Component Composition --> adding one Component inside another one
+
+5. JSX will sanitize the data and prevent the cross site scripting
+
+-- If we have to give any attributes in JSX we have to give in camelCase only
+
+
+EP4
