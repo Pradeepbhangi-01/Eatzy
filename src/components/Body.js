@@ -1,5 +1,6 @@
 import RestroContainer from "./ResturantCard";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import ShimmerUI from "./Shimmer";
 
 const Body = () => {
@@ -16,7 +17,7 @@ const Body = () => {
       const json = await data.json();
 
       const filteredData =
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
       console.log("filteredData ", filteredData);
@@ -26,6 +27,10 @@ const Body = () => {
       console.log(error);
     }
   };
+
+  // If no dependency array is passed, useEffect will run after every render
+  // If an empty array is passed, useEffect will run only once after the initial render
+  // If a dependency array is passed, useEffect will run after the initial render and whenever any of the dependencies change
   useEffect(() => {
     fetchData();
   }, []);
@@ -53,14 +58,13 @@ const Body = () => {
           className="search-btn"
           onClick={() => {
             // On Filter search filter TODO
-            console.log("searchList ", searchList.toLowerCase());
 
             const searchFilterList = listOFRestro.filter((restro) => {
-              restro.info.name.toLowerCase().includes(searchList.toLowerCase());
+              return restro.info.name
+                .toLowerCase()
+                .includes(searchList.toLowerCase());
             });
             setFilteredList(searchFilterList);
-
-            console.log("filteredList ----", filteredList);
           }}
         >
           Search
@@ -68,7 +72,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredList.map((resturant) => (
-          <RestroContainer key={resturant?.info?.id} resData={resturant} />
+          <Link
+            to={"restaurant/" + resturant?.info?.id}
+            key={resturant?.info?.id}
+          >
+            <RestroContainer resData={resturant} />
+          </Link>
         ))}
       </div>
     </div>

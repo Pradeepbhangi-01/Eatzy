@@ -1,0 +1,155 @@
+{
+  "id": "1003414",
+  "name": "Pizza Hut",
+  "city": "Chhindwara",
+  "slugs": {
+    "restaurant": "pizza-hut-bb-raj-nagar",
+    "city": "chhindwara"
+  },
+  "uniqueId": "e51e6528-4859-48c8-8fed-e84c17dc2d76",
+  "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/6/9/a1e023e4-bdf3-4bcb-b4d9-2498ba52528e_1003414.JPG",
+  "locality": "Chhindwara",
+  "areaName": "Parasia Road",
+  "costForTwo": "35000",
+  "costForTwoMessage": "₹350 for two",
+  "cuisines": ["Pizzas"],
+  "avgRating": 4.2,
+  "feeDetails": {
+    "restaurantId": "1003414",
+    "fees": [{}]
+  },
+  "parentId": "721",
+  "avgRatingString": "4.2",
+  "totalRatingsString": "139 ratings",
+  "sla": {
+    "restaurantId": "1003414",
+    "deliveryTime": 49,
+    "minDeliveryTime": 45,
+    "maxDeliveryTime": 50,
+    "lastMileTravel": 13.1,
+    "serviceability": "SERVICEABLE",
+    "stressFactor": 1,
+    "rainMode": "RAIN_MODE_NONE",
+    "longDistance": "LONG_DISTANCE_IT_IS_LONG_DISTANCE",
+    "zoneId": 2218,
+    "slaString": "45-50 MINS",
+    "lastMileTravelString": "13.1 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2025-07-02 00:00:00",
+    "visibility": true,
+    "opened": true,
+    "restaurantClosedMeta": {}
+  },
+  "aggregatedDiscountInfo": {
+    "header": "Get items under 284",
+    "shortDescriptionList": [
+      {
+        "meta": "Get items under 284",
+        "discountType": "FinalPrice",
+        "operationType": "RESTAURANT"
+      },
+      {
+        "discountType": "Percentage",
+        "operationType": "RESTAURANT"
+      }
+    ],
+    "descriptionList": [
+      {
+        "meta": "Get items under 284",
+        "discountType": "FinalPrice",
+        "operationType": "RESTAURANT"
+      },
+      {
+        "meta": "10% off upto ₹125|Use HSBCFEST Above ₹499",
+        "discountType": "Percentage",
+        "operationType": "RESTAURANT"
+      }
+    ],
+    "visible": true
+  },
+  "badges": {},
+  "slugString": "pizza-hut-bb-raj-nagar",
+  "isOpen": true,
+  "labels": [
+    {
+      "title": "Timings",
+      "message": "null"
+    },
+    {
+      "title": "Address",
+      "message": "Pizza Hut, Shop no 3&4,Plot No.2/11,2/13,Block no 45,Parasia Road,Chhindwara,,Chhindwara,Chhindwara, Madhya Pradesh-480002"
+    },
+    {
+      "title": "Cuisines",
+      "message": "Pizzas"
+    }
+  ],
+  "totalRatings": 139,
+  "aggregatedDiscountInfoV2": {
+    "header": "Get items under 284",
+    "shortDescriptionList": [
+      {
+        "meta": "Get items under 284",
+        "discountType": "FinalPrice",
+        "operationType": "RESTAURANT"
+      },
+      {
+        "discountType": "Percentage",
+        "operationType": "RESTAURANT"
+      }
+    ],
+    "descriptionList": [
+      {
+        "meta": "Get items under 284",
+        "discountType": "FinalPrice",
+        "operationType": "RESTAURANT"
+      },
+      {
+        "meta": "10% off upto ₹125|Use HSBCFEST Above ₹499",
+        "discountType": "Percentage",
+        "operationType": "RESTAURANT"
+      }
+    ],
+    "couponDetailsCta": "View coupon details"
+  },
+  "type": "F",
+  "nudgeBanners": [
+    {
+      "priority": 2,
+      "discountInfo": {
+        "discountType": "FinalPrice",
+        "value": 319
+      },
+      "unlockedMessage": "Deal of the Day unlocked!",
+      "minItemCount": 1,
+      "maxItemCount": 1,
+      "type": "SILD",
+      "nudgeTagInfo": {
+        "title": "Deal of the Day",
+        "fontName": "FONT_NAME_CONDENSED_BOLD"
+      },
+      "logoCtx": {}
+    }
+  ],
+  "headerBanner": {
+    "url": "swiggy://webview?is_external=false&webview_url=https://www.swiggy.com/restaurant-info/1003414"
+  },
+  "ratingSlab": "RATING_SLAB_5",
+  "orderabilityCommunication": {
+    "title": {},
+    "subTitle": {},
+    "message": {},
+    "customIcon": {},
+    "commsStyling": {}
+  },
+  "hasBestsellerItems": true,
+  "cartOrderabilityNudgeBanner": {
+    "parameters": {},
+    "presentation": {}
+  },
+  "latLong": "22.059492,78.928728",
+  "backgroundImageOverlayInfo": {},
+  "featuredSectionInfo": {}
+}
