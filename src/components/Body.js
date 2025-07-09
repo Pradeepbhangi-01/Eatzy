@@ -1,6 +1,7 @@
 import RestroContainer from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useNetworkStatus from "../utils/useNetworkStatus";
 import ShimmerUI from "./Shimmer";
 
 const Body = () => {
@@ -17,7 +18,7 @@ const Body = () => {
       const json = await data.json();
 
       const filteredData =
-        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
       console.log("filteredData ", filteredData);
@@ -28,9 +29,6 @@ const Body = () => {
     }
   };
 
-  // If no dependency array is passed, useEffect will run after every render
-  // If an empty array is passed, useEffect will run only once after the initial render
-  // If a dependency array is passed, useEffect will run after the initial render and whenever any of the dependencies change
   useEffect(() => {
     fetchData();
   }, []);
@@ -39,6 +37,9 @@ const Body = () => {
     setFilteredList(listOFRestro.filter((restro) => restro.info.avgRating > 4));
   };
 
+  const onlineStatus = useNetworkStatus();
+
+  if (!onlineStatus) return <h1>!!!!Looks like you are Offiline...</h1>;
   return listOFRestro.length === 0 ? (
     <ShimmerUI />
   ) : (

@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { RESMENU_URL } from "../utils/constants";
+import useRestrurantMenu from "../utils/useRestrurantMenu";
+
 import ShimmerUI from "./Shimmer";
 
 const RestrorauntMenu = () => {
-  const [resDetails, setResDetails] = useState(null);
   const { resId } = useParams();
 
-  const fetchMenuData = async () => {
-    try {
-      const resData = await fetch(RESMENU_URL + resId);
-      const filteredResData = await resData.json();
-      setResDetails(filteredResData);
-      console.log("filteredResData ", filteredResData);
-    } catch (error) {
-      console.error("Error fetching restaurant menu: ", error);
-    }
-  };
-  useEffect(() => {
-    // api call to fetch the data
-    fetchMenuData();
-  }, [resId]);
+  const resDetails = useRestrurantMenu(resId);
+
   if (!resDetails) return <ShimmerUI />;
-  console.log("resDetails ", resDetails);
   const { name, costForTwoMessage, cuisines } =
     resDetails?.data?.cards[2]?.card?.card?.info;
 
