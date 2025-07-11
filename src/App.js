@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
@@ -7,15 +7,19 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import ErrorPage from "./components/404.Page";
 import RestrorauntMenu from "./components/RestrurantMenu";
+import CardContext from "./utils/cardContext";
 
 const About = lazy(() => import("./components/About"));
 // Components HLL
 const App = () => {
+  const [cartCount, setCartCount] = useState(0);
   return (
     <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
+      <CardContext.Provider value={{ cartValue: cartCount, setCartCount }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </CardContext.Provider>
     </div>
   );
 };

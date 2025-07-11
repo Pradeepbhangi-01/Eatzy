@@ -1,4 +1,4 @@
-import RestroContainer from "./ResturantCard";
+import RestroCard, { avalability } from "./ResturantCard";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useNetworkStatus from "../utils/useNetworkStatus";
@@ -18,7 +18,7 @@ const Body = () => {
       const json = await data.json();
 
       const filteredData =
-        json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants;
 
       console.log("filteredData ", filteredData);
@@ -38,17 +38,16 @@ const Body = () => {
   };
 
   const onlineStatus = useNetworkStatus();
+  const AvailableRestrurant = avalability(RestroCard);
 
   if (!onlineStatus) return <h1>!!!!Looks like you are Offiline...</h1>;
   return listOFRestro.length === 0 ? (
     <ShimmerUI />
   ) : (
     <div className="body">
-      <div className="resto-filter">
-        <button className="filter-btn" onClick={topRatedFilter}>
-          Top Rated Resturants
-        </button>
+      <div className="resto-filter flex items-center m-4">
         <input
+          className="border rounded-lg p-1"
           type="text"
           value={searchList}
           onChange={(e) => {
@@ -56,7 +55,7 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-btn"
+          className="search px-4 py-1 bg-blue-300 m-4 rounded-lg cursor-pointer"
           onClick={() => {
             // On Filter search filter TODO
 
@@ -70,14 +69,24 @@ const Body = () => {
         >
           Search
         </button>
+        <button
+          className="search px-4 py-1 bg-blue-300 m-4 rounded-lg cursor-pointer"
+          onClick={topRatedFilter}
+        >
+          Top Rated Resturants
+        </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredList.map((resturant) => (
           <Link
             to={"restaurant/" + resturant?.info?.id}
             key={resturant?.info?.id}
           >
-            <RestroContainer resData={resturant} />
+            {resturant?.info?.avgRating > 4.3 ? (
+              <AvailableRestrurant resData={resturant} />
+            ) : (
+              <RestroCard resData={resturant} />
+            )}
           </Link>
         ))}
       </div>
