@@ -7,8 +7,6 @@ import ShimmerUI from "./Shimmer";
 const RestrorauntMenu = () => {
   const { resId } = useParams();
 
-  const [showIndex, setShowIndex] = useState(null);
-
   const resDetails = useRestrurantMenu(resId);
 
   if (!resDetails) return <ShimmerUI />;
@@ -36,14 +34,7 @@ const RestrorauntMenu = () => {
       </p>
 
       {resCategories.map((restro, index) => (
-        <ResturantCategories
-          key={index}
-          data={restro?.card?.card}
-          showItems={index === showIndex ? true : false}
-          setShowItems={() => {
-            setShowIndex(index);
-          }}
-        />
+        <ResturantCategories key={index} data={restro?.card?.card} />
       ))}
     </div>
   );

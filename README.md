@@ -32,4 +32,15 @@
 
 - (Normal JS utility functions)
 - useState() - suprePowerful react variable
-- useEffect()
+- useEffect() - Initial rendering api call, dependency rendering
+- useParams - access dynamic ids from url
+- useContext - global state management
+
+# Redux
+
+- install react-redux and @redux/toolkit
+- create the store
+- connect to the store
+- slice(cartslice)
+- dispatch(action)
+- selector

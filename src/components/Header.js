@@ -1,8 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import useNetworkStatus from "../utils/useNetworkStatus";
-import CardContext from "../utils/cardContext";
+
 const Header = () => {
   let [btnButton, setBtnButton] = useState("Login");
 
@@ -10,7 +11,11 @@ const Header = () => {
     btnButton == "Login" ? setBtnButton("Logout") : setBtnButton("Login");
   };
   const onlineStatus = useNetworkStatus();
-  const { cartValue } = useContext(CardContext);
+
+  // we are subscribing the store using selector
+  const cartValue = useSelector((store) => store.cart.items); // need access to cart items
+
+  console.log("cartValue ", cartValue);
   return (
     <>
       <div className="flex justify-between bg-blue-100 shadow-lg">
@@ -26,7 +31,9 @@ const Header = () => {
             <li className="px-4">
               <Link to="/about">About</Link>
             </li>
-            <li className="px-4">Cart - {cartValue}</li>
+            <li className="px-4 font-bold">
+              <Link to="/cart">Cart - {cartValue.length}</Link>
+            </li>
             <li className="px-4">Profile</li>
             <button className="login-btn px-4" onClick={loginUpdate}>
               {btnButton}

@@ -8,6 +8,9 @@ import Contact from "./components/Contact";
 import ErrorPage from "./components/404.Page";
 import RestrorauntMenu from "./components/RestrurantMenu";
 import CardContext from "./utils/cardContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const About = lazy(() => import("./components/About"));
 // Components HLL
@@ -15,11 +18,13 @@ const App = () => {
   const [cartCount, setCartCount] = useState(0);
   return (
     <div className="app">
-      <CardContext.Provider value={{ cartValue: cartCount, setCartCount }}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </CardContext.Provider>
+      <Provider store={appStore}>
+        <CardContext.Provider value={{ cartValue: cartCount, setCartCount }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </CardContext.Provider>
+      </Provider>
     </div>
   );
 };
@@ -41,6 +46,10 @@ const appRouter = createBrowserRouter([
             <About />
           </Suspense>
         ),
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       { path: "contact", element: <Contact /> },
       {

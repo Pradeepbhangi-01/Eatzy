@@ -1,12 +1,17 @@
-import CardContext from "../utils/cardContext";
 import { MENU_ITEM_IMAGE } from "../utils/constants";
-import { useContext } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 function ItemList({ data }) {
-  const { cartValue, setCartCount } = useContext(CardContext);
+  // const { cartValue, setCartCount } = useContext(CardContext);
   const { name, itemAttribute, imageId, description } = data?.info;
 
-  console.log("cartCount ", cartValue);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
+
   return (
     <div className="flex justify-between p-2 border-gray-300 border-b-2">
       <div className="text-left w-9/12">
@@ -24,9 +29,7 @@ function ItemList({ data }) {
         <div className="absolute">
           <button
             className="bg-black text-white rounded-lg mx-17  p-1 cursor-pointer"
-            onClick={() => {
-              setCartCount(cartValue + 1);
-            }}
+            onClick={() => handleAddItem(data)}
           >
             Add+
           </button>
